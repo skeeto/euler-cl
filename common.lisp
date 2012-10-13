@@ -3,8 +3,9 @@
 (defun primep (n)
   "Predicate to test the primality of N. If composite, the second
 return value is the lowest factor."
-  (loop for i from 2 to (sqrt n)
-     when (= 0 (mod n i)) return (values nil i) finally (return t)))
+  (when (> n 1)
+    (loop for i from 2 to (sqrt n)
+       when (= 0 (mod n i)) return (values nil i) finally (return t))))
 
 (defun factors (n)
   "Return the prime factors of N."
