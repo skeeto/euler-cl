@@ -14,6 +14,10 @@ return value is the lowest factor."
         (list n)
         (cons f (factors (/ n f))))))
 
+(defun divisors (n)
+  (loop for i from 1 to n
+     when (= 0 (mod n i)) collect i))
+
 (defun curry (function &rest args)
   "Partially apply FUNCTION to ARGS."
   (lambda (&rest more-args)
