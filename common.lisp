@@ -15,8 +15,10 @@ return value is the lowest factor."
         (cons f (factors (/ n f))))))
 
 (defun divisors (n)
-  (loop for i from 1 to n
-     when (= 0 (mod n i)) collect i))
+  "Return the divisors of N."
+  (loop for i from 1 to (sqrt n)
+     when (= 0 (mod n i)) collect i into small and collect (/ n i) into large
+     finally (return (nconc small (nreverse large)))))
 
 (defun curry (function &rest args)
   "Partially apply FUNCTION to ARGS."
