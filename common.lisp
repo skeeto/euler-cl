@@ -27,3 +27,13 @@ return value is the lowest factor."
   "Partially apply FUNCTION to ARGS as the rightmost arguments."
   (lambda (&rest more-args)
     (apply function (append more-args args))))
+
+(defmacro defmemoized (name args &rest body)
+  "Like DEFUN but memoizes the function."
+  (let ((table (make-hash-table :test #'equal)))
+    `(defun ,name (&rest args)
+       (labels ((f ,args ,@body))
+         (multiple-value-bind (value found) (gethash args ,table)
+           (if found
+               value
+               (setf (gethash args ,table) (apply #'f args))))))))
