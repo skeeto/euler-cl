@@ -18,7 +18,7 @@ return value is the lowest factor."
   "Return the divisors of N."
   (loop for i from 1 to (sqrt n)
      when (= 0 (mod n i)) collect i into small and collect (/ n i) into large
-     finally (return (nconc small (nreverse large)))))
+     finally (return (delete-duplicates (nconc small (nreverse large))))))
 
 (defun curry (function &rest args)
   "Partially apply FUNCTION to ARGS."
