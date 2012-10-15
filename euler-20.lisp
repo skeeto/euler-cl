@@ -8,6 +8,6 @@
 ;; Find the sum of the digits in the number 100!
 
 (defun euler-20 ()
-  (loop with n = (apply #'* (loop for i from 2 to 100 collect i))
+  (loop with n = (! 100)
      until (zerop n) sum (mod n 10)
      do (setf n (floor n 10))))
