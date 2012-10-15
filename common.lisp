@@ -20,6 +20,12 @@ return value is the lowest factor."
      when (= 0 (mod n i)) collect i into small and collect (/ n i) into large
      finally (return (delete-duplicates (nconc small (nreverse large))))))
 
+(defun ! (n &optional (accum 1))
+  "Compute the factorial of N."
+  (if (< n 2)
+      accum
+      (! (1- n) (* n accum))))
+
 (defun curry (function &rest args)
   "Partially apply FUNCTION to ARGS."
   (lambda (&rest more-args)
