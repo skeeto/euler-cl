@@ -10,7 +10,7 @@ return value is the lowest factor."
 (defun factors (n)
   "Return the prime factors of N."
   (multiple-value-bind (prime f) (primep n)
-    (if prime
+    (if (or prime (= n 1))
         (list n)
         (cons f (factors (/ n f))))))
 
