@@ -38,10 +38,10 @@ return value is the lowest factor."
 
 (defmacro defmemoized (name args &rest body)
   "Like DEFUN but memoizes the function."
-  (let ((table (make-hash-table :test #'equal)))
-    `(defun ,name (&rest args)
+  `(let ((table (make-hash-table :test #'equal)))
+     (defun ,name (&rest args)
        (labels ((f ,args ,@body))
-         (multiple-value-bind (value found) (gethash args ,table)
+         (multiple-value-bind (value found) (gethash args table)
            (if found
                value
-               (setf (gethash args ,table) (apply #'f args))))))))
+               (setf (gethash args table) (apply #'f args))))))))
