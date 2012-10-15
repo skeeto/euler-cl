@@ -16,4 +16,6 @@
 (defun euler-4 ()
   (loop for a from 1 to 999 maximize
        (loop for b from 1 to 999
-          when (palindromep (prin1-to-string (* a b))) maximize (* a b))))
+          when (palindromep (prin1-to-string (* a b)))
+          maximize (* a b) into best
+          finally (return (or best 0)))))
