@@ -4,8 +4,8 @@ These are solutions to the various
 [Project Euler](http://projecteuler.net/) problems in Common Lisp,
 updated as I feel like it. These are not necessarily the fastest
 solutions but rather simple, clean solutions that run in under a
-minute on modest hardware. The purpose is to demonstrate the elegance
-of Common Lisp.
+minute on modest hardware with SBCL. The purpose is to demonstrate the
+elegance of Common Lisp.
 
 I enjoy how, provided some extra math functions (`primep`, `factors`,
 `divisors`, `!`, etc.), so many of the problems can be computed with a
