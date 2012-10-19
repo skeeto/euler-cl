@@ -31,4 +31,5 @@
                (:file "euler-26")
                (:file "euler-27" :depends-on ("common"))
                (:file "euler-28")
-               (:file "euler-29")))
+               (:file "euler-29")
+               (:file "euler-30")))
