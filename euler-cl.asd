@@ -27,4 +27,5 @@
                (:file "euler-22" :depends-on ("common"))
                (:file "euler-23" :depends-on ("common"))
                (:file "euler-24" :depends-on ("common"))
-               (:file "euler-25")))
+               (:file "euler-25")
+               (:file "euler-26")))
