@@ -6,6 +6,6 @@
 (asdf:load-system :euler-cl)
 
 (time
- (loop for problem from 1 to 28
+ (loop for problem from 1 to 29
     do (format t "Problem ~3,d: ~d~%" problem
                (funcall (intern (format nil "EULER-~d" problem))))))
